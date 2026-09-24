@@ -1,17 +1,18 @@
-/* #21618c   #5dade2 */
-
 *{
     box-sizing: border-box;
-    font-family: tahoma;
+    font-family: Tahoma;
 }
+
 body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-color: #21618c;
+    background-color: #eaf6ff;
+    color: #1f3a4d;
 }
+
 header{
-    background-color: #5dade2;
+    background-color: #7cc7f2;
     display: flex;
     align-items: flex-end;
     padding-top: 20px;
@@ -19,6 +20,7 @@ header{
     flex-direction: column;
     gap: 20px;
 }
+
 .hero-section{
     margin-top: 60px;
     width: 100%;
@@ -28,21 +30,37 @@ header{
     background-size: cover;
     background-repeat: no-repeat;
     padding: 30px;
-}
-.banner-content {
-    max-width: 500px;
+    position: relative;
 }
 
-.banner-brand {
+.hero-section::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(20, 100, 150, 0.85),
+        rgba(60, 150, 200, 0.45),
+        rgba(0, 0, 0, 0.1)
+    );
+}
+
+.banner-content{
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-brand{
     display: inline-block;
-    color: #5dade2;
+    color: #ffffff;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
-.banner-title {
+.banner-title{
     font-size: 60px;
     margin-top: 10px;
     color: #ffffff;
@@ -50,23 +68,29 @@ header{
     line-height: 1.1;
 }
 
-.banner-description {
+.banner-description{
     margin-top: 18px;
-    color: #d1d5db;
+    color: #e8f7ff;
     font-size: 18px;
     line-height: 1.8;
 }
-/* ************************************************************************** */
+
 input{
     font-size: 18px;
-    border-radius: 3px;
-    border: none;
-    padding: 5px 10px;
-    color: #21618c;
+    border-radius: 8px;
+    border: 1px solid #70bce5;
+    padding: 7px 12px;
+    color: #24516b;
+    background-color: #ffffff;
     outline: none;
 }
-input::placeholder {
-    color: #21618c;
+
+input::placeholder{
+    color: #79a9c2;
+}
+
+input:focus{
+    border-color: #2196d3;
 }
 
 #icon{
@@ -81,11 +105,12 @@ input::placeholder {
     align-items: flex-start;
     gap: 10px;
     position: fixed;
-    background-color:#5dade2;
+    background-color: #7cc7f2;
     left: 0;
     right: 0;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 15px rgba(40, 120, 170, 0.25);
 }
 
 ul{
@@ -99,65 +124,85 @@ ul{
 }
 
 li{
-    border: 2px solid #0e3c5b;
-    color: white;
+    border: 2px solid #ffffff;
+    color: #16445d;
     border-radius: 100px;
-    padding: 3px 10px;
+    padding: 4px 12px;
     transition: all 0.3s;
     cursor: pointer;
 }
 
 li:hover{
-    border-color: white;
-    color: #0e3c5b;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #1684c1;
 }
 
 main{
     display: flex;
-    padding: 0px 20px;
+    padding: 0 20px;
     justify-content: space-between;
     width: 100%;
     gap: 10px;
     row-gap: 30px;
     flex-wrap: wrap;
 }
+
 .container{
     flex: 0 0 calc((100% - 30px) / 4);
-    background-color: #5dade2;
+    background-color: #7cc7f2;
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(40, 120, 170, 0.2);
+    transition: transform 0.3s ease;
 }
+
+.container:hover{
+    transform: translateY(-5px);
+}
+
 img{
     width: 100%;
+    display: block;
 }
+
 .movie-info{
     display: flex;
     justify-content: space-between;
     align-items: start;
     padding: 10px 15px;
 }
+
 .movie-info h3{
     margin: 0;
     font-size: 23px;
     flex: 1;
+    color: #123c54;
 }
+
 .movie-info span{
     font-size: 20px;
-    background-color: #21618c;
-    border-radius: 3px;
+    background-color: #eaf6ff;
+    border-radius: 5px;
     padding: 4px 13px;
 }
+
 .movie-info span.green{
-    color: lightgreen;
+    color: #16803c;
 }
+
 .movie-info span.orange{
-    color: orange;
+    color: #d97706;
 }
+
 .movie-info span.red{
-    color: red;
+    color: #dc2626;
 }
+
 .overview{
-    background-color: white;
+    background-color: #ffffff;
+    color: #23465a;
     padding: 15px;
     position: absolute;
     left: 0;
@@ -167,136 +212,160 @@ img{
     transform: translateY(101%);
     transition: transform 0.3s ease;
 }
+
 .overview h3{
     font-size: 25px;
     margin: 0;
+    color: #1677ad;
 }
+
 .overview p{
     font-size: 17px;
     letter-spacing: 0.7px;
+    line-height: 1.7;
 }
+
 .container:hover .overview{
     transform: translateY(0);
 }
 
-@media(min-width : 1000px) and (max-width : 1300px){
+@media(min-width: 1000px) and (max-width: 1300px){
     .movie-info h3{
         font-size: 17px;
     }
+
     .movie-info span{
         font-size: 13px;
         padding: 5px 8px;
     }
+
     .overview h3{
         font-size: 20px;
     }
+
     .overview p{
         font-size: 15px;
     }
 }
 
-@media(max-width : 900px){
+@media(max-width: 900px){
     ul{
         font-size: 16px;
     }
 }
 
-@media(max-width : 750px){
+@media(max-width: 750px){
     ul{
         flex-direction: column;
     }
+
     .hero-section{
         margin-top: 220px;
     }
 }
 
-@media(min-width : 700px) and (max-width : 999px){
+@media(min-width: 700px) and (max-width: 999px){
     .movie-info h3{
         font-size: 17px;
     }
+
     .movie-info span{
         font-size: 13px;
         padding: 5px 8px;
     }
+
     .overview h3{
         font-size: 20px;
     }
+
     .overview p{
         font-size: 15px;
     }
+
     .container{
         flex: 0 0 calc((100% - 20px) / 3);
     }
-    
 }
 
-@media(min-width : 500px) and (max-width : 699px){
+@media(min-width: 500px) and (max-width: 699px){
     .movie-info h3{
         font-size: 17px;
     }
+
     .movie-info span{
         font-size: 13px;
         padding: 5px 8px;
     }
+
     .overview h3{
         font-size: 20px;
     }
+
     .overview p{
         font-size: 15px;
     }
+
     .container{
         flex: 0 0 calc((100% - 10px) / 2);
     }
-    .banner-title {
+
+    .banner-title{
         font-size: 45px;
     }
 }
 
-@media(max-width : 500px){
+@media(max-width: 500px){
     .movie-info h3{
         font-size: 14px;
     }
+
     .movie-info span{
         font-size: 11px;
         padding: 4px 6px;
     }
+
     .overview h3{
         font-size: 16px;
     }
+
     .overview p{
         font-size: 13px;
     }
+
     .container{
         flex: 0 0 calc((100% - 10px) / 2);
     }
-   
-    .banner-title {
+
+    .banner-title{
         font-size: 35px;
     }
 }
 
-@media(max-width : 450px){
+@media(max-width: 450px){
     .navigation{
         flex-direction: column;
     }
 }
 
-@media(max-width : 400px){
+@media(max-width: 400px){
     .movie-info h3{
         font-size: 17px;
     }
+
     .movie-info span{
         font-size: 11px;
         padding: 5px 8px;
     }
+
     .overview h3{
         font-size: 20px;
     }
+
     .overview p{
         font-size: 15px;
     }
+
     .container{
-        flex: 0 0 calc(100%);
+        flex: 0 0 100%;
     }
-    
 }

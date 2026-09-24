@@ -39,14 +39,14 @@ const genres = [
 ];
 
 // دریافت اطلاعات از API
-async function request(url) {
+async function request(url){
     const res = await fetch(url);
     const data = await res.json();
     return data.results;
 }
 
 // تعیین رنگ امتیاز
-function chooseClass(rate) {
+function chooseClass(rate){
     if (rate >= 8) {
         return "green";
     } else if (rate >= 5) {
